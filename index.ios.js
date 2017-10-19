@@ -14,36 +14,32 @@ import {
 } from 'react-native';
 import { RkButton, RkCard, RkTheme } from 'react-native-ui-kitten';
 
-class Blink extends Component{
+export default class kitten extends Component{
   constructor(props){
     super(props);
-    this.state = { showText: true };
-
-    //toggle this state
-    setTimeout(() => {
-      this.setState(previousState => {
-        return {showText: !previousState};
-      })
-    }, 3000)
   }
-
-  render() {
-    let displayText = this.state.showText ? this.props.name: '';
+  render(){
     return (
-      <Text>{displayText}</Text>
-    )
-  }
-}
-
-export default class kitten extends Component {
-  render() {
-    return (
-      <View style={{alignItems: 'center'}}>
-        <Text>hidded after 1000 sm.</Text>
-        <Blink name="sadadaddasdasd"/>
+      <View style={styles.center}>
+        <Text style={styles.bigblue}>big blue.</Text>
+        <Text style={styles.red}>red.</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center'
+  },
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30
+  },
+  red: {
+    color: 'red'
+  }
+})
 
 AppRegistry.registerComponent('newProj', () => kitten);
